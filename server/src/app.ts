@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 dotenv.config();
-const CLIENT = process.env.CLIENT || "http:localhost:3000";
+const CLIENT = process.env.CLIENT || "http:localhost:5173";
 
 const app = express();
 
