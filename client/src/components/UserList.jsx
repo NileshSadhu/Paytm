@@ -3,10 +3,9 @@ import { searchUsers } from "../api/user";
 import UserRow from "./UserRow";
 import TransferModal from "./TransferModal";
 
-const UserList = () => {
+const UserList = ({ onSend }) => {
   const [users, setUsers] = useState([]);
   const [filter, setFilter] = useState("");
-  const [selectedUser, setSelectedUser] = useState(null);
   const currentUserId = localStorage.getItem("userId");
 
   useEffect(() => {
@@ -33,17 +32,9 @@ const UserList = () => {
         {users
           .filter((u) => u._id !== currentUserId)
           .map((u) => (
-            <UserRow key={u._id} user={u} onSend={setSelectedUser} />
+            <UserRow key={u._id} user={u} onSend={onSend} />
           ))}
       </div>
-
-      {/* small popup window */}
-      {selectedUser && (
-        <TransferModal
-          user={selectedUser}
-          onClose={() => setSelectedUser(null)}
-        />
-      )}
     </div>
   );
 };

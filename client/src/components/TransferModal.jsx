@@ -2,7 +2,7 @@ import { useState } from "react";
 import { transferMoney } from "../api/user.js";
 import { toast, ToastContainer } from "react-toastify";
 
-const TransferModal = ({ user, onClose }) => {
+const TransferModal = ({ user, onClose, onTransferSuccess }) => {
   const [amount, setAmount] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -24,6 +24,7 @@ const TransferModal = ({ user, onClose }) => {
     }
 
     toast("Transfer successful!");
+    onTransferSuccess();
     onClose();
   };
 

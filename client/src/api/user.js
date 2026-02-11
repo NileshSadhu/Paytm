@@ -1,6 +1,5 @@
 import axiosClient from "./axioClient";
 
-// get balance
 export const fetchBalance = async () => {
     try {
         const res = await axiosClient.get("/api/v1/paytm/balance");
@@ -11,7 +10,6 @@ export const fetchBalance = async () => {
     }
 };
 
-// search users
 export const searchUsers = async (filter = "") => {
     try {
         const res = await axiosClient.get(
@@ -37,7 +35,7 @@ export const showUser = async () => {
 
 export const transferMoney = async (amount, to) => {
     try {
-        const res = await axiosClient.post("/api/v1/paytm/transfer", {
+        const res = await axiosClient.post("/api/v1/paytm/transfer-money", {
             amount,
             to
         });
